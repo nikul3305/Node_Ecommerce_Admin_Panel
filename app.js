@@ -7,7 +7,7 @@ const port = process.env.PORT || 5000 ;
 const app = express();
 
 // DataBase Connection
-const dbConnect = require('./config/connect');
+const dbConnect = require('./config/Connect');
 
 // Middleware: Parses form data
 const bodyParser = require('body-parser');
