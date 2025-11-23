@@ -11,10 +11,11 @@
   "description": "",
   "dependencies": {
     "bcryptjs": "^3.0.2",
+    "body-parser": "^2.2.0",
     "bootstrap-icons": "^1.13.1",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.7",
-    "dotenv": "^16.5.0",
+    "dotenv": "^16.6.1",
     "ejs": "^3.1.10",
     "ejs-blocks": "^0.1.4",
     "express": "^5.1.0",

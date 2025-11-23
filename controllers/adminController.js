@@ -21,7 +21,7 @@ exports.getDashBord = (req,res) => {
     }
 };
 // GET Admin DashBord Page
-exports.getAuthenticated =  async (req, res) => {
+exports.getAuthenticated =  async(req, res) => {
     if(req.session.admin) {
         const Totaluser = await admin.countDocuments();
         const Totalproduct = await products.countDocuments();
@@ -30,7 +30,6 @@ exports.getAuthenticated =  async (req, res) => {
         res.render('login');
     }
 };
-
 
 // GET SignUp
 exports.getSignUp = (req, res) =>  {
@@ -53,6 +52,7 @@ exports.postSignUp = async (req, res) => {
         await Create.save();
          const adminsave  = await Create.save();
         if(adminsave){
+            req.session.admin = adminsave;
             req.flash('success', 'Successfully signup in.', "You're in!");
         }
         res.redirect('/admin/login');
@@ -95,16 +95,13 @@ exports.postLogin = async (req, res) => {
     }
 };
 
-
 // GET Logout_page
 exports.getLogout = (req, res) => {
     req.session.destroy((err) => {
         if (err) {
             console.log('Error destroying session:', err);
-
             return res.redirect('/admin/dashBord');
         }
-
         res.redirect('/admin/login');
     });
 };

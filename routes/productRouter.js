@@ -2,9 +2,6 @@ const express = require('express');
 const router = express.Router();
 const productRouter = require('../controllers/productController');
 
-
-
-
 const upload = productRouter.multer;
 
 // GET product

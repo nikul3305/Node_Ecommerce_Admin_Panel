@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const adminSchema = new mongoose.Schema({
-
     email: {
         type: String,
         required: true,
@@ -25,17 +24,17 @@ const adminSchema = new mongoose.Schema({
         unique: true,
         validate: {
             validator: function(v) {
-                return /^[0-9]{10}$/.test(v); // Exactly 10 digits
+                return /^[0-9]{10}$/.test(v);
             },
             message: props => `${props.value} is not a valid 10-digit mobile number!`
         }
     }
-
 },{
     timestamps: true,
 })
 
 module.exports = mongoose.model('admin', adminSchema);
+
 
 
 

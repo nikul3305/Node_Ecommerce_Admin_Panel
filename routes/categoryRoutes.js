@@ -1,10 +1,6 @@
 const express =  require('express');
 const router = express.Router();
 const categoryController = require('../controllers/categoryController');
-const productRouter = require("../controllers/productController");
-
-
-
 const upload = categoryController.multer;
 
 router.get('/admin/category',categoryController.find);

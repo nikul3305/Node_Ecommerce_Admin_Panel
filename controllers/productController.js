@@ -105,7 +105,6 @@ exports.delete= async(req,res) => {
     const {id} = req.params;
     try{
         const deleteproduct = await products.findByIdAndDelete(req.params.id);
-
         req.flash('success','product delete successfully');
         res.redirect('/admin/product');
 

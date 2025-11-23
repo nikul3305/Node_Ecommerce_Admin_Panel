@@ -1,8 +1,5 @@
 <% layout('layout/auth') -%>
 
-
-
-
 <div class="container-fluid">
     <div class="row">
         <!--   sidebar -->
@@ -41,7 +38,6 @@
                                <div class="col-md-3 mb-3 w-100">
                                    <label for="validationCustom04" class="form-label">category</label>
                                    <select class="form-select w-50 " name="categoryid" id="validationCustom04" required>
-
                                            <option selected disabled value="">Choose...</option>
                                        <% category.forEach(cat => { %>
                                            <option value="<%= cat._id %>"><%= cat.name %></option>
@@ -59,7 +55,6 @@
                                        Please enter a message in the description.
                                    </div>
                                </div>
-
                                <!-- Product Status -->
                                <div class="mb-3">
                                    <label class="form-label d-block">Status:</label>
@@ -80,7 +75,6 @@
                                            </div>
                                    </div>
                                </div>
-
                                <!-- Submit Button -->
                                <button type="submit" class="btn btn-primary">Submit</button>
                            </form>
@@ -138,7 +132,7 @@
                                             <td ><%= element.name|| "-" %></td>
                                             <td><%= element.description || "-"%></td>
                                             <td ><button class="border border-0 px-2 fs-6 rounded-pill" style="background-color: rgba(0,128,0,0.3)"><%= element.status || "-" %></button></td>
-                                            <td><%= element.category.name%></td>
+                                            <td><%= element.category.name || '-'%></td>
                                             <!-- view/Edit/Delete -->
                                             <td>
                                                 <div class="btn-group">
@@ -168,7 +162,6 @@
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h1 class="modal-title fs-5" id="staticBackdropLabel">product detail</h1>
-
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body d-flex flex-column">

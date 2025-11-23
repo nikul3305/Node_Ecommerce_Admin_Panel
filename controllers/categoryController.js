@@ -15,11 +15,10 @@ exports.create = async (req, res) => {
     const { name, description, status } = req.body;
     const image = req.file ? req.file.filename : null;
     try {
-        const add = new category({ name, description, status, image});
-        const categoryAdd = await add.save();
+        const addCategory = new category({ name, description, status, image});
+        await addCategory.save();
         req.flash('success', 'Product added successfully')
         res.redirect('/admin/category');
-
     } catch (err) {
         if(err){
             req.flash('error', 'Product not saved')
@@ -31,10 +30,9 @@ exports.create = async (req, res) => {
 
 exports.find = async (req,res) => {
     try{
-        const find  = await category.find();
-
-        req.session.find = find;
-        if(find){
+        const findCategory  = await category.find();
+        req.session.find = findCategory;
+        if(findCategory){
             res.render('category', { find : req.session.find});
         }else{
             res.redirect('/admin/category');
@@ -71,10 +69,8 @@ exports.editpost = async (req,res) => {
     const { name, description, status} = req.body;
     try{
         const updatecategory = await category.findByIdAndUpdate(id,{name, description, status}, {new : true});
-
         req.flash('success', 'product update succesfully')
         res.redirect('/admin/category');
-
     }catch (err){
         req.flash('error', 'product not updated')
         console.log(err);
